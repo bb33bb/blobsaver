@@ -4,12 +4,10 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: Build on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: Build
+    runs-on: ghcr.io/cirruslabs/macos-ventura-xcode:latest
     strategy:
       fail-fast: false
-      matrix:
-        os: [ghcr.io/cirruslabs/macos-ventura-xcode:latest]
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK
